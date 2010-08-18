@@ -1,0 +1,13 @@
+<p>
+  <b>File size:</b>
+  <%=h @uploaded_file.file_size %>
+</p>
+
+<p>
+  <b>File type:</b>
+  <%=h @uploaded_file.file_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_uploaded_file_path(@uploaded_file) %> |
+<%= link_to 'Back', uploaded_files_path %>

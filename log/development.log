@@ -1,0 +1,959 @@
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (224.7ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (147.9ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUploadedFiles (20100815225004)
+  [4;36;1mSQL (98.5ms)[0m   [0;1mCREATE TABLE `uploaded_files` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `file_size` varchar(255), `file_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100815225004')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `uploaded_files`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `uploaded_files`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 18:59:44) [GET]
+  [4;36;1mUploadedFile Load (0.3ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:01:20) [GET]
+  [4;35;1mUploadedFile Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 219ms (View: 211, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:03:08) [GET]
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 16ms (View: 10, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:07:31) [GET]
+  [4;35;1mUploadedFile Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 317ms (View: 312, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:07:50) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>"7-14-10 AR Aging Detail.pdf"}}
+  [4;36;1mUploadedFile Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+
+NoMethodError (undefined method `content_type' for "7-14-10 AR Aging Detail.pdf":String):
+  app/models/uploaded_file.rb:12:in `inputfile='
+  app/controllers/uploaded_files_controller.rb:43:in `new'
+  app/controllers/uploaded_files_controller.rb:43:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (25.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:09:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>"7-14-10 AR Aging Detail.pdf"}}
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (38.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Create (0.8ms)[0m   [0mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_size`, `file_type`) VALUES('2010-08-15 23:09:24', '2010-08-15 23:09:24', NULL, NULL)[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mROLLBACK[0m
+
+NoMethodError (undefined method `read' for "7-14-10 AR Aging Detail.pdf":String):
+  app/models/uploaded_file.rb:38:in `write_file'
+  app/controllers/uploaded_files_controller.rb:46:in `create'
+  app/controllers/uploaded_files_controller.rb:45:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (86.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:10:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>"7-14-10 AR Aging Detail.pdf"}}
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+
+NoMethodError (undefined method `read' for "7-14-10 AR Aging Detail.pdf":String):
+  app/models/uploaded_file.rb:10:in `inputfile='
+  app/controllers/uploaded_files_controller.rb:43:in `new'
+  app/controllers/uploaded_files_controller.rb:43:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (25.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:12:21) [GET]
+  [4;36;1mUploadedFile Columns (14.0ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 25ms (View: 8, DB: 14) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:12:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-8jafb6-0>}}
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Create (0.2ms)[0m   [0mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_size`, `file_type`) VALUES('2010-08-15 23:12:32', '2010-08-15 23:12:32', 'application/pdf', NULL)[0m
+  [4;36;1mSQL (7.4ms)[0m   [0;1mROLLBACK[0m
+
+NameError (uninitialized constant UploadedFile::XmlDocument):
+  app/models/uploaded_file.rb:21:in `file_path'
+  app/models/uploaded_file.rb:48:in `write_file'
+  app/controllers/uploaded_files_controller.rb:46:in `create'
+  app/controllers/uploaded_files_controller.rb:45:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (86.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:12:46) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-i6q1c5-0>}}
+  [4;35;1mUploadedFile Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (39.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Create (0.2ms)[0m   [0mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_size`, `file_type`) VALUES('2010-08-15 23:12:46', '2010-08-15 23:12:46', 'application/pdf', NULL)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mROLLBACK[0m
+
+NoMethodError (undefined method `makedirs' for File:Class):
+  app/models/uploaded_file.rb:51:in `write_file'
+  app/controllers/uploaded_files_controller.rb:46:in `create'
+  app/controllers/uploaded_files_controller.rb:45:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (29.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:12:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-1l843l3-0>}}
+  [4;35;1mUploadedFile Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Create (0.2ms)[0m   [0mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_size`, `file_type`) VALUES('2010-08-15 23:12:59', '2010-08-15 23:12:59', 'application/pdf', NULL)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files/4
+Completed in 181ms (DB: 4) | 302 Found [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#show (for 127.0.0.1 at 2010-08-15 19:12:59) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUploadedFile Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mUploadedFile Load (1.1ms)[0m   [0;1mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 4) [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/show
+Completed in 68ms (View: 5, DB: 3) | 200 OK [http://nginx.dev/uploaded_files/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:15:20) [GET]
+  [4;35;1mUploadedFile Load (0.3ms)[0m   [0mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;36;1mUploadedFile Columns (26.6ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 92ms (View: 6, DB: 27) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:15:21) [GET]
+  [4;35;1mUploadedFile Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 78ms (View: 72, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:15:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-a0s8gi-0>}}
+  [4;36;1mUploadedFile Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadedFile Create (0.3ms)[0m   [0;1mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_size`, `file_type`) VALUES('2010-08-15 23:15:30', '2010-08-15 23:15:30', 'application/pdf', NULL)[0m
+  [4;35;1mSQL (8.9ms)[0m   [0mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files/5
+Completed in 20ms (DB: 11) | 302 Found [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#show (for 127.0.0.1 at 2010-08-15 19:15:30) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mUploadedFile Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (1.4ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 5) [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/show
+Completed in 11ms (View: 2, DB: 4) | 200 OK [http://nginx.dev/uploaded_files/5]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#show (for 127.0.0.1 at 2010-08-15 19:15:54) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mUploadedFile Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (38.9ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 5) [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/show
+Completed in 48ms (View: 2, DB: 41) | 200 OK [http://nginx.dev/uploaded_files/5]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:15:56) [GET]
+  [4;36;1mUploadedFile Load (0.3ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 13ms (View: 7, DB: 2) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#destroy (for 127.0.0.1 at 2010-08-15 19:15:58) [DELETE]
+  Parameters: {"authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "id"=>"4"}
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (37.8ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Destroy (0.3ms)[0m   [0mDELETE FROM `uploaded_files` WHERE `id` = 4[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files
+Completed in 50ms (DB: 42) | 302 Found [http://nginx.dev/uploaded_files/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:15:58) [GET]
+  [4;35;1mUploadedFile Load (0.3ms)[0m   [0mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 59ms (View: 54, DB: 2) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#destroy (for 127.0.0.1 at 2010-08-15 19:15:59) [DELETE]
+  Parameters: {"authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "id"=>"5"}
+  [4;35;1mUploadedFile Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mUploadedFile Load (42.9ms)[0m   [0;1mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 5) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadedFile Destroy (0.3ms)[0m   [0;1mDELETE FROM `uploaded_files` WHERE `id` = 5[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files
+Completed in 56ms (DB: 47) | 302 Found [http://nginx.dev/uploaded_files/5]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:15:59) [GET]
+  [4;36;1mUploadedFile Load (0.3ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (148.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (106.8ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUploadedFiles (20100815225004)
+  [4;36;1mSQL (88.8ms)[0m   [0;1mCREATE TABLE `uploaded_files` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `file_name` varchar(255), `file_size` varchar(255), `file_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100815225004')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (32.2ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mdescribe `uploaded_files`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `uploaded_files`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:20:00) [GET]
+  [4;35;1mUploadedFile Load (0.3ms)[0m   [0mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+Completed in 7ms (View: 1, DB: 1) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:20:03) [GET]
+  [4;36;1mUploadedFile Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 11ms (View: 5, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:20:08) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-i7p45g-0>}}
+  [4;35;1mUploadedFile Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Create (0.4ms)[0m   [0mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_name`, `file_size`, `file_type`) VALUES('2010-08-15 23:20:08', '2010-08-15 23:20:08', '_1281914408..pdf', NULL, 'application/pdf')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files/1
+Completed in 12ms (DB: 4) | 302 Found [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#show (for 127.0.0.1 at 2010-08-15 19:20:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUploadedFile Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mUploadedFile Load (1.4ms)[0m   [0;1mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 1) [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/show
+Completed in 13ms (View: 3, DB: 4) | 200 OK [http://nginx.dev/uploaded_files/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:22:45) [GET]
+  [4;35;1mUploadedFile Load (0.3ms)[0m   [0mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;36;1mUploadedFile Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 13ms (View: 5, DB: 2) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:22:46) [GET]
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:22:51) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-1dmbhl-0>}}
+  [4;36;1mUploadedFile Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+
+Errno::ENOENT (No such file or directory - 8822.zip):
+  app/models/uploaded_file.rb:18:in `size'
+  app/models/uploaded_file.rb:18:in `inputfile='
+  app/controllers/uploaded_files_controller.rb:43:in `new'
+  app/controllers/uploaded_files_controller.rb:43:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (22.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:26:54) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-1h7dju5-0>}}
+  [4;35;1mUploadedFile Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+
+Errno::ENOTDIR (Not a directory - /tmp/RackMultipart20100815-790-1h7dju5-0/8822.zip):
+  app/models/uploaded_file.rb:18:in `size'
+  app/models/uploaded_file.rb:18:in `inputfile='
+  app/controllers/uploaded_files_controller.rb:43:in `new'
+  app/controllers/uploaded_files_controller.rb:43:in `create'
+  passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (24.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:27:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-v4vsgf-0>}}
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mSQL (35.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadedFile Create (0.3ms)[0m   [0;1mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_name`, `file_size`, `file_type`) VALUES('2010-08-15 23:27:30', '2010-08-15 23:27:30', '1281914850.zip', NULL, 'application/zip')[0m
+  [4;35;1mSQL (11.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files/2
+Completed in 60ms (DB: 49) | 302 Found [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#show (for 127.0.0.1 at 2010-08-15 19:27:30) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (0.9ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 2) [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/show
+Completed in 20ms (View: 12, DB: 3) | 200 OK [http://nginx.dev/uploaded_files/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:27:41) [GET]
+  [4;36;1mUploadedFile Load (0.4ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 12ms (View: 6, DB: 2) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#destroy (for 127.0.0.1 at 2010-08-15 19:27:45) [DELETE]
+  Parameters: {"authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "id"=>"1"}
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (35.4ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Destroy (0.2ms)[0m   [0mDELETE FROM `uploaded_files` WHERE `id` = 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files
+Completed in 47ms (DB: 39) | 302 Found [http://nginx.dev/uploaded_files/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:27:45) [GET]
+  [4;35;1mUploadedFile Load (0.3ms)[0m   [0mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;36;1mUploadedFile Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 10ms (View: 4, DB: 2) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#destroy (for 127.0.0.1 at 2010-08-15 19:27:47) [DELETE]
+  Parameters: {"authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "id"=>"2"}
+  [4;35;1mUploadedFile Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;36;1mUploadedFile Load (38.9ms)[0m   [0;1mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadedFile Destroy (0.2ms)[0m   [0;1mDELETE FROM `uploaded_files` WHERE `id` = 2[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files
+Completed in 51ms (DB: 42) | 302 Found [http://nginx.dev/uploaded_files/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:27:47) [GET]
+  [4;36;1mUploadedFile Load (0.3ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:27:55) [GET]
+  [4;35;1mUploadedFile Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 12ms (View: 6, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#create (for 127.0.0.1 at 2010-08-15 19:28:08) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "uploaded_file"=>{"inputfile"=>#<File:/tmp/RackMultipart20100815-790-1xo3ynx-0>}}
+  [4;36;1mUploadedFile Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadedFile Create (0.2ms)[0m   [0;1mINSERT INTO `uploaded_files` (`created_at`, `updated_at`, `file_name`, `file_size`, `file_type`) VALUES('2010-08-15 23:28:08', '2010-08-15 23:28:08', '1281914888.json', NULL, 'application/octet-stream')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files/3
+Completed in 61ms (DB: 4) | 302 Found [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#show (for 127.0.0.1 at 2010-08-15 19:28:08) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadedFile Columns (3.8ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (1.5ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 3) [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/show
+Completed in 12ms (View: 2, DB: 5) | 200 OK [http://nginx.dev/uploaded_files/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:28:11) [GET]
+  [4;36;1mUploadedFile Load (0.3ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+  [4;35;1mUploadedFile Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Completed in 11ms (View: 4, DB: 3) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#destroy (for 127.0.0.1 at 2010-08-15 19:28:13) [DELETE]
+  Parameters: {"authenticity_token"=>"qVYwy6ZGUMbnfMrWkTRYGmUjk36vVeTOJMGz0BCRyjw=", "id"=>"3"}
+  [4;36;1mUploadedFile Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+  [4;35;1mUploadedFile Load (36.3ms)[0m   [0mSELECT * FROM `uploaded_files` WHERE (`uploaded_files`.`id` = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadedFile Destroy (0.3ms)[0m   [0mDELETE FROM `uploaded_files` WHERE `id` = 3[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://nginx.dev/uploaded_files
+Completed in 49ms (DB: 40) | 302 Found [http://nginx.dev/uploaded_files/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:28:13) [GET]
+  [4;35;1mUploadedFile Load (0.4ms)[0m   [0mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#index (for 127.0.0.1 at 2010-08-15 19:33:11) [GET]
+  [4;36;1mUploadedFile Load (0.4ms)[0m   [0;1mSELECT * FROM `uploaded_files` [0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/index
+Completed in 7ms (View: 1, DB: 1) | 200 OK [http://nginx.dev/uploaded_files]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:33:17) [GET]
+  [4;35;1mUploadedFile Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 51ms (View: 44, DB: 3) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:33:23) [GET]
+  [4;36;1mUploadedFile Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 11ms (View: 5, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:35:50) [GET]
+  [4;35;1mUploadedFile Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+ERROR: compiling _run_erb_app47views47uploaded_files47new46html46erb RAISED compile error
+/Users/abbottry/Sites/nginxuploadtest/app/views/uploaded_files/new.html.erb:75: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47uploaded_files47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New uploaded_file</h1>\n\n"
+
+;  form_for(@uploaded_file, :html => { :multipart => true, :target => 'uploadframe', :onsubmit => 'openProgressBar(); return true;' }) do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :inputfile ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.file_field :inputfile ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.submit 'Create' ).to_s); @output_buffer.concat "\n  </p>\n"
+
+;  end ; @output_buffer.concat "\n\n<iframe id=\"uploadframe\" name=\"uploadframe\" width=\"0\" height=\"0\" frameborder=\"0\" border=\"0\" src=\"about:blank\"></iframe>\n\n<div>\n <div id=\"progress\" style=\"width: 400px; border: 1px solid black\">\n   <div id=\"progressbar\" \n        style=\"width: 1px; background-color: black; border: 1px solid white\">\n         \n   </div>\n</div>\n<div id=\"tp\">(progress)</div>\n</div>\n\n"
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  content_for :javascript ; @output_buffer.concat "\n\tinterval = null;\n\n  function openProgressBar() {\n    /* generate random progress-id */\n    uuid = \"\";\n    for (i = 0; i < 32; i++) {\n      uuid += Math.floor(Math.random() * 16).toString(16);\n    }\n    /* patch the form-action tag to include the progress-id */\n    document.getElementById(\"upload\").action=\"/upload.php?X-Progress-ID=\" + uuid;\n\n    /* call the progress-updater every 1000ms */\n    interval = window.setInterval( function () {  fetch(uuid);  }, 1000 );\n  }\n\n  function fetch(uuid) {\n    req = new XMLHttpRequest();\n    req.open(\"GET\", \"/progress\", 1);\n    req.setRequestHeader(\"X-Progress-ID\", uuid);\n    req.onreadystatechange = function () {\n    if (req.readyState == 4) {\n      if (req.status == 200) {\n        /* poor-man JSON parser */\n        var upload = eval(req.responseText);\n\n        document.getElementById('tp').innerHTML = upload.state;\n\n        /* change the width if the inner progress-bar */\n        if (upload.state == 'done' || upload.state == 'uploading') {\n          bar = document.getElementById('progressbar');\n          w = 400 * upload.received / upload.size;\n          bar.style.width = w + 'px';\n        }\n        /* we are done, stop the interval */\n        if (upload.state == 'done') {\n          window.clearTimeout(interval);\n        }\n      }\n    }\n  }\n\n  req.send(null);\n}\n\n"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  end ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to 'Back', uploaded_files_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/abbottry/Sites/nginxuploadtest/app/views/uploaded_files/new.html.erb:75:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/abbottry/Sites/nginxuploadtest/app/controllers/uploaded_files_controller.rb:29:in `new'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/utils.rb:252:in `safe_fork'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:163:in `start'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+/Users/abbottry/.gem/ruby/1.8/gems/passenger-2.2.13/bin/passenger-spawn-server:61
+
+ActionView::TemplateError (compile error
+/Users/abbottry/Sites/nginxuploadtest/app/views/uploaded_files/new.html.erb:75: syntax error, unexpected kENSURE, expecting $end) on line #75 of app/views/uploaded_files/new.html.erb:
+72: <% end %>
+73: 
+74: <%= link_to 'Back', uploaded_files_path %>
+
+    app/views/uploaded_files/new.html.erb:75:in `compile!'
+    app/controllers/uploaded_files_controller.rb:29:in `new'
+    passenger (2.2.13) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.13) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+    passenger (2.2.13) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.13) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    passenger (2.2.13) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.13) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (27.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-15 19:36:12) [GET]
+  [4;36;1mUploadedFile Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 19ms (View: 13, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-17 22:44:04) [GET]
+  [4;36;1mUploadedFile Columns (70.9ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 168ms (View: 65, DB: 71) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-17 22:45:11) [GET]
+  [4;35;1mUploadedFile Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 15ms (View: 9, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadedFilesController#new (for 127.0.0.1 at 2010-08-17 22:45:29) [GET]
+  [4;36;1mUploadedFile Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `uploaded_files`[0m
+Rendering template within layouts/uploaded_files
+Rendering uploaded_files/new
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://nginx.dev/uploaded_files/new]

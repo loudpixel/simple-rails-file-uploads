@@ -1,0 +1,20 @@
+<h1>Editing uploaded_file</h1>
+
+<% form_for(@uploaded_file) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :file_size %><br />
+    <%= f.text_field :file_size %>
+  </p>
+  <p>
+    <%= f.label :file_type %><br />
+    <%= f.text_field :file_type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @uploaded_file %> |
+<%= link_to 'Back', uploaded_files_path %>
